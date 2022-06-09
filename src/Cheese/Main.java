@@ -1,8 +1,8 @@
 /*
-*	grupo  :
-*	alumno :
-*	n.exp. :
-*	fecha  :
+*	grupo  : 1GDAM
+*	alumno : Kazhokin Roman
+*	n.exp. : 7255
+*	fecha  : 09/06/2022
  */
 package Cheese;
 

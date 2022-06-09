@@ -50,7 +50,11 @@ public class ListaProductos {
         if ((campo.replace(" ","").isEmpty()) || (campo == null))  return true; else return false;
     }
 
-    public ListaProductos(String nombre) {
+    /**
+     * Lista los productos con determinado nombre y si no tiene un nombre, le pone un "noNamed"
+     * @param nombre lista productos con ese nombre
+     */
+    public ListaProductos(String nombre) {  
     	if (parametro_vacio(nombre)) {
     		this.nombreLista = "noNamed";
     	}
@@ -58,10 +62,21 @@ public class ListaProductos {
     	this.nombreLista = nombre;
     	}
     }
+    /**
+     * 
+     * @return devuelve el numero de productos totales
+     */
     public int totalProductos(){
             return this.getNumProductos();
     }
-        
+       
+    /**
+     * método para registrar un determinado producto, si la lista ya contiene el codigo, devuelve null
+     * @param  prod que necesitemos
+     * @return  devuelve el nulo o el producto
+     * si no, le pone a la lista el codigo y su producto
+     * 
+     */
     public Producto registraProducto(Producto prod) {
         
         if (listaP.containsKey(prod.getcode())) {
@@ -73,6 +88,12 @@ public class ListaProductos {
         return prod;
     }
 
+    /**
+     * método que nos sirve para descartar un determinado producto
+     * @param codigo que utilizaremos para identificar al producto
+     * @return devuelve el producto que lo buscará con el codigo
+     * si el producto no es nulo, lo descarta
+     */
     public Producto descartaProducto(String codigo) { 
         
         Producto prod = encuentraProducto(codigo);
@@ -84,6 +105,13 @@ public class ListaProductos {
         return prod;
     }
 
+    /**
+     * Encuentra un producto utilizando su codigo
+     * si la lista no contiene ese codigo, devuelve el producto 
+     * @param codigo que sirve para encontrar su producto relacionado
+     * @return  devuelve el codigo
+     * si no, la lista nos muestra el codigo relacionado
+     */
     public Producto encuentraProducto(String codigo) { 
         Producto prod = null;
         
