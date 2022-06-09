@@ -79,7 +79,7 @@ public class ListaProductos {
      */
     public Producto registraProducto(Producto prod) {
         
-        if (listaP.containsKey(prod.getcode())) {
+        if (listaP.containsKey(prod.getcode()) || (prod.getcode()==null)) {
            return null;
         }
         listaP.put(prod.getcode(), prod);
@@ -97,12 +97,12 @@ public class ListaProductos {
     public Producto descartaProducto(String codigo) { 
         
         Producto prod = encuentraProducto(codigo);
-        if (prod != null) {
+        if (prod != null)  {
 	        listaP.remove(codigo);
 	        n--;
 	        this.setNumProductos(n);
         }
-        return prod;
+        return null;
     }
 
     /**
@@ -118,9 +118,10 @@ public class ListaProductos {
         if (!listaP.containsKey(codigo)) {
             return prod;
         }
-        else{
-            return listaP.get(codigo);
+        else if(listaP.get(codigo)== null){
+            return null;
         }
+		return prod;
     }
 /**
  * Devuelve un array con los productos registrados en la lista
